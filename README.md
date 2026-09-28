@@ -1,6 +1,3 @@
-Falha na consulta
-Com base na análise do seu projeto ImobFlow - Gestão Imobiliária (http://localhost:5173/), preparei uma estrutura completa e profissional de README.md pronta para você utilizar no seu repositório GitHub.
-
 🏢 ImobFlow - Gestão Imobiliária
 Painel integrado de gestão imobiliária desenvolvido com uma API Node.js, banco de dados PostgreSQL e interface frontend moderna.
 

@@ -1,56 +1,59 @@
-🏢 ImobFlow - Gestão Imobiliária
-Painel integrado de gestão imobiliária desenvolvido com uma API Node.js, banco de dados PostgreSQL e interface frontend moderna.
+# 🏡 ImobFlow-Web: Plataforma Imobiliária Moderna (Frontend)
 
-🚀 Sobre o Projeto
-O ImobFlow é um sistema voltado para o setor imobiliário que simplifica o cadastro e o gerenciamento de propriedades. A aplicação integra uma interface web responsiva a um backend robusto, permitindo o registro rápido de imóveis com informações essenciais como título, localização (bairro) e valor de mercado.
+Uma Single Page Application (SPA) construída com React e Vite para a plataforma ImobFlow, focada em proporcionar uma experiência de usuário intuitiva e de alta performance para a visualização e gestão de imóveis. Este projeto serve como o frontend para o [ImobFlow-API](https://github.com/carloshenrique2026/imobflow-api).
 
-🛠️ Tecnologias Utilizadas
-Frontend: React.js / Vite (imobflow-web)
+## ✨ Funcionalidades Principais
 
-Backend: Node.js com arquitetura de API REST
+*   **Exibição de Imóveis:** Página inicial com imóveis em destaque, listagem completa de todos os imóveis disponíveis e páginas de detalhes para cada propriedade.
+*   **Navegação Intuitiva:** Roteamento dinâmico entre as páginas (Início, Imóveis, Sobre, Contato, Detalhes do Imóvel).
+*   **Painel Administrativo (CRUD):** Interface para o corretor cadastrar, visualizar, editar e excluir imóveis.
+*   **Design Responsivo:** Layout adaptável para dispositivos móveis e desktops.
+*   **Comunicação com API:** Integração robusta com o backend `imobflow-api` para todas as operações de dados.
 
-Banco de Dados: PostgreSQL
+## 🚀 Tecnologias Utilizadas (Frontend)
 
-📋 Funcionalidades
-Cadastro de Imóveis: Formulário dinâmico para inserção de novos imóveis informando:
+*   **React:** Biblioteca JavaScript para construção de interfaces de usuário.
+*   **Vite:** Ferramenta de build de nova geração para projetos frontend, focado em velocidade.
+*   **React Router DOM:** Para gerenciamento de rotas e navegação na SPA.
+*   **Axios:** Cliente HTTP para fazer requisições à API.
+*   **Styled Components:** Para estilização de componentes de forma modular e dinâmica.
+*   **JavaScript (ES Modules):** Linguagem de programação.
 
-Título (Ex: Apartamento com 2 quartos)
+## ⚙️ Arquitetura do Projeto
 
-Bairro (Ex: Valentina)
+A estrutura do projeto é modular e segue as melhores práticas para aplicações React:
 
-Valor (Ex: R$ 175.000)
+src/ ├── components/ # Componentes reutilizáveis (Header, Footer, PropertyCard, HeroSection, etc.) ├── containers/ # Componentes de página/visão (HomePage, PropertiesList, PropertyDetailsPage, AdminPanel) ├── routes/ # Definição de todas as rotas da aplicação ├── services/ # Módulos para interação com a API (api.js, propertyService.js) ├── App.jsx # Componente raiz que configura o layout e o roteamento └── main.jsx # Ponto de entrada da aplicação React
 
-Painel de Listagem em Tempo Real: Exibição dos imóveis salvos na base de dados com controle de ID e data de cadastro.
 
-Exemplo de Estrutura Cadastrada no Sistema:
-Título: 2 quartos bancários
+## 📦 Como Executar o Projeto Localmente
 
-Bairro: Valentina
+Para rodar o `ImobFlow-Web`, você precisa ter o [ImobFlow-API](https://github.com/carloshenrique2026/imobflow-api) em execução.
 
-Valor: R$ 175.000,00
+1.  **Clone este repositório:**
+    ```bash
+    git clone https://github.com/carloshenrique2026/imobflow-web.git
+    cd imobflow-web
+    ```
+2.  **Instale as dependências:**
+    ```bash
+    pnpm install
+    # Ou npm install / yarn install, dependendo do seu gerenciador
+    ```
+3.  **Certifique-se de que o [ImobFlow-API](https://github.com/carloshenrique2026/imobflow-api) está rodando** em `http://localhost:3001`.
+4.  **Inicie o servidor de desenvolvimento:**
+    ```bash
+    pnpm dev
+    ```
+5.  Abra seu navegador e acesse `http://localhost:5173/`.
 
-💻 Como Executar o Projeto
-Clone o repositório:
+## 📞 Contato
 
-Bash
-git clone <https://github.com/carloshenrique2026/imobflow-web>
-Configuração do Backend:
+Desenvolvido por **Carlos Henrique **
 
-Navegue até a pasta do servidor e instale as dependências:
+*   [Portfólio](https://carloshenriqueprogramador.com.br/)
+*   [LinkedIn](https://www.linkedin.com/in/carlos-henrique-farias-dev/) <!-- Substitua pelo seu perfil do LinkedIn -->
+*   [GitHub](https://github.com/carloshenrique2026) <!-- Substitua pelo seu perfil do GitHub -->
 
-npm install
-
-* Configure o arquivo `.env` com suas credenciais de conexão do PostgreSQL.
-* Inicie o servidor:
-```bash
-npm run dev
-Configuração do Frontend:
-
-Navegue até a pasta do projeto web (imobflow-web) e instale as dependências:
-
-npm install
-
-* Inicie a aplicação em ambiente de desenvolvimento:
-```bash
-npm run dev
-Acesse no navegador: http://localhost:5173/
+---
+**DevClub & clubHub:** Agradecimento especial à comunidade DevClub e à plataforma clubHub pelo suporte e aprendizado contínuo na jornada de desenvolvimento React.

@@ -1,23 +1,23 @@
 // src/components/HeroSection.jsx
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Para o botão "Ver Imóveis"
+import { Link } from 'react-router-dom';
+import HeroBg from '../assets/hero-banner-bg.jpg'; // <-- NOVA IMAGEM DE FUNDO GENÉRICA!
 
-// Componente estilizado para o contêiner principal da Hero Section
 const HeroContainer = styled.section`
-  background-image: url('https://carloshenriquecorretor.com.br/wp-content/uploads/2023/12/banner-site-min.jpg'); /* Use a imagem de fundo do site */
-  background-size: cover; /* Garante que a imagem cubra toda a área */
-  background-position: center; /* Centraliza a imagem */
-  height: 600px; /* Altura fixa para a seção, ajuste conforme necessário */
+  background-image: url(${HeroBg}); /* <-- Usa a nova imagem */
+  background-size: cover;
+  background-position: center;
+  height: 600px;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza o conteúdo verticalmente */
-  align-items: center; /* Centraliza o conteúdo horizontalmente */
-  color: white; /* Cor do texto */
-  text-align: center; /* Alinhamento do texto */
-  position: relative; /* Necessário para o overlay */
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 
-  /* Overlay escuro para melhorar a legibilidade do texto */
   &::before {
     content: '';
     position: absolute;
@@ -25,55 +25,53 @@ const HeroContainer = styled.section`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4); /* Escurece a imagem de fundo */
-    z-index: 1; /* Garante que o overlay esteja abaixo do texto */
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro */
+    z-index: 1;
   }
 `;
 
-// Componente estilizado para o conteúdo (título e botão)
 const HeroContent = styled.div`
-  position: relative; /* Garante que o conteúdo fique acima do overlay */
-  z-index: 2; /* Acima do overlay */
-  max-width: 800px; /* Largura máxima para o texto */
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
   padding: 20px;
 `;
 
-// Componente estilizado para o título
 const HeroTitle = styled.h1`
-  font-size: 3.5em; /* Tamanho do título grande */
+  font-size: 3.5em;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra para o texto */
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 
   @media (max-width: 768px) {
-    font-size: 2.5em; /* Ajuste para telas menores */
+    font-size: 2.5em;
   }
 `;
 
-// Componente estilizado para o subtítulo/descrição (opcional)
 const HeroSubtitle = styled.p`
   font-size: 1.5em;
   margin-bottom: 30px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 
   @media (max-width: 768px) {
     font-size: 1.2em;
   }
 `;
 
-// Componente estilizado para o botão
 const HeroButton = styled(Link)`
-  background-color: #007bff; /* Cor azul de destaque */
+  background-color: #007bff;
   color: white;
   padding: 15px 30px;
   border-radius: 5px;
-  text-decoration: none; /* Remove sublinhado */
+  text-decoration: none;
   font-size: 1.2em;
   font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transição suave */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #0056b3; /* Cor mais escura ao passar o mouse */
-    transform: translateY(-2px); /* Efeito de "levantar" */
+    background-color: #0056b3;
+    transform: translateY(-2px);
   }
 `;
 
@@ -81,11 +79,11 @@ function HeroSection() {
   return (
     <HeroContainer>
       <HeroContent>
-        <HeroTitle>Carlos Henrique Corretor</HeroTitle>
+        <HeroTitle>Seu Imóvel Ideal Está Aqui</HeroTitle> {/* <-- Novo título mais conciso */}
         <HeroSubtitle>
-          Encontre o imóvel ideal para você em João Pessoa e região!
+          Com a expertise do Corretor Carlos Henrique, encontre as melhores opções em João Pessoa e região!
         </HeroSubtitle>
-        <HeroButton to="/imoveis">Ver Imóveis</HeroButton> {/* Link para a lista de imóveis */}
+        <HeroButton to="/imoveis">Ver Imóveis</HeroButton>
       </HeroContent>
     </HeroContainer>
   );

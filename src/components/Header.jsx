@@ -2,46 +2,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import LogoImage from '../assets/mylogomarca.jpg'; // Sua logo
 
 const HeaderContainer = styled.header`
-  background-color: #007bff; /* Cor azul do site de referência */
+  background-color: ${({ theme }) => theme.colors.primary}; /* Azul principal */
   color: white;
-  padding: 15px 20px;
+  padding: ${({ theme }) => theme.spacing.medium} ${({ theme }) => theme.spacing.large}; /* Padding superior/inferior e lateral */
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
     text-align: center;
+    padding: ${({ theme }) => theme.spacing.medium}; /* Ajuste de padding para tablet */
   }
 `;
 
 const Logo = styled(Link)`
-  font-size: 1.8em;
-  font-weight: bold;
   color: white;
   text-decoration: none;
-  margin-right: 20px;
+  margin-right: ${({ theme }) => theme.spacing.xLarge}; /* Espaço maior à direita para nav */
+  display: flex;
+  align-items: center;
 
-  &:hover {
-    color: #e0e0e0;
-  }
-
-  @media (max-width: 768px) {
-    margin-bottom: 15px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-bottom: ${({ theme }) => theme.spacing.medium};
     margin-right: 0;
+  }
+`;
+
+const StyledLogoImage = styled.img`
+  height: 50px; /* Ajuste a altura da sua logo para ser um pouco maior */
+  width: auto;
+  /* Se sua logo já tem o texto "Carlos Henrique Corretor", não precisa de margin-right adicional */
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    height: 40px; /* Ajuste para telas menores */
   }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  gap: 20px;
+  gap: ${({ theme }) => theme.spacing.large}; /* Espaçamento entre os links */
 
-  @media (max-width: 768px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
-    gap: 10px;
+    gap: ${({ theme }) => theme.spacing.small};
+    width: 100%; /* Ocupa a largura total para links em coluna */
+    margin-bottom: ${({ theme }) => theme.spacing.medium};
   }
 `;
 
@@ -54,16 +65,16 @@ const NavLink = styled(Link)`
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: ${({ theme }) => theme.colors.primary}B3; /* Cor mais escura ao hover */
   }
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 15px;
+  gap: ${({ theme }) => theme.spacing.medium};
 
-  @media (max-width: 768px) {
-    margin-top: 15px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    margin-top: ${({ theme }) => theme.spacing.medium};
   }
 `;
 
@@ -80,7 +91,9 @@ const SocialIcon = styled.a`
 function Header() {
   return (
     <HeaderContainer>
-      <Logo to="/">Carlos Henrique Corretor</Logo> {/* Logo clicável */}
+      <Logo to="/">
+        <StyledLogoImage src={LogoImage} alt="Carlos Henrique Corretor Logo" />
+      </Logo>
       <Nav>
         <NavLink to="/">Início</NavLink>
         <NavLink to="/imoveis">Imóveis</NavLink>
@@ -90,7 +103,7 @@ function Header() {
         {/* <NavLink to="/admin">Admin</NavLink> */}
       </Nav>
       <SocialLinks>
-        {/* Ícones de redes sociais (use ícones reais como FontAwesome se quiser) */}
+        {/* Links para suas redes sociais */}
         <SocialIcon href="https://facebook.com/seu-perfil" target="_blank">FB</SocialIcon>
         <SocialIcon href="https://instagram.com/seu-perfil" target="_blank">IG</SocialIcon>
         <SocialIcon href="https://linkedin.com/seu-perfil" target="_blank">LI</SocialIcon>
@@ -99,4 +112,4 @@ function Header() {
   );
 }
 
-export default Header; // <-- ESSA LINHA É CRÍTICA!
+export default Header;

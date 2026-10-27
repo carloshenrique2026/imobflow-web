@@ -27,7 +27,7 @@ const WhatsAppLink = styled.a`
 
 function WhatsAppButton() {
   // Substitua pelo seu número de telefone e mensagem padrão
-  const phoneNumber = '5583999999999'; // Ex: 55 DDD NÚMERO
+  const phoneNumber = '5583996245391'; // Ex: 55 DDD NÚMERO
   const message = 'Olá, gostaria de mais informações sobre um imóvel.';
   const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 

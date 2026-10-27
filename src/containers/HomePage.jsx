@@ -1,37 +1,37 @@
 // src/containers/HomePage.jsx
 import React from 'react';
 import styled from 'styled-components';
-import HeroSection from '../components/HeroSection'; // <-- Importe aqui!
+import HeroSection from '../components/HeroSection';
+import FeaturedProperties from '../components/FeaturedProperties';
+import AboutMeBrief from '../components/AboutMeBrief';
+import Testimonials from '../components/Testimonials';
+import ContactBrief from '../components/ContactBrief'; // <-- GARANTA QUE ESTA LINHA ESTÁ AQUI E ATIVA!
 
 const HomeContainer = styled.div`
-  /* Remova o min-height e o flexbox de centralização daqui,
-     pois a HeroSection terá sua própria altura e centralização.
-     Deixe apenas estilos de padding, background, etc. que sejam globais para a Home. */
-  padding: 0; /* A HeroSection vai ocupar toda a largura, então padding 0 */
+  padding: 0;
   background-color: #f0f2f5;
-  /* O min-height pode ser removido ou ajustado para o restante do conteúdo */
-  min-height: calc(100vh - 120px - 600px); /* Ajuste a altura para o restante */
+  min-height: calc(100vh - 120px);
 `;
 
-// Se você quiser manter o título de boas-vindas, pode colocá-lo abaixo da HeroSection
-const SectionTitle = styled.h2`
-  text-align: center;
-  font-size: 2.5em;
-  color: #333;
-  margin: 40px 0;
-`;
+// SectionTitle pode ser mantido se você precisar de títulos genéricos para outras seções
+// const SectionTitle = styled.h2`
+//   text-align: center;
+//   font-size: 2.5em;
+//   color: #333;
+//   margin: 40px 0 30px;
+//   padding: 0 20px;
+// `;
 
 function HomePage() {
   return (
     <HomeContainer>
-      <HeroSection /> {/* <-- Renderize a HeroSection aqui! */}
+      <HeroSection />
+      <FeaturedProperties />
+      <AboutMeBrief />
+      <Testimonials />
 
-      {/* Você pode adicionar outras seções abaixo da HeroSection */}
-      <SectionTitle>Imóveis em Destaque</SectionTitle>
-      {/* Aqui viria o componente FeaturedProperties */}
-
-      <SectionTitle>Sobre o Corretor</SectionTitle>
-      {/* Aqui viria o componente AboutMeBrief */}
+      {/* Renderiza a seção de Contato Breve aqui */}
+      <ContactBrief /> {/* <-- GARANTA QUE ESTA LINHA ESTÁ AQUI E ATIVA! */}
 
     </HomeContainer>
   );
